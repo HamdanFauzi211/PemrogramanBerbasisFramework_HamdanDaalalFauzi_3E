@@ -1,0 +1,35 @@
+export default function paramsExample(){
+  return(
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/netflix">Netflix</Link>
+          </li>
+          <li>
+            <Link to="/gmail">Gmail</Link>
+          </li>
+          <li>
+            <Link to="/yahoo">Yahoo</Link>
+          </li>
+          <li>
+            <Link to="/amazon">Amazon</Link>
+          </li>
+        </ul>
+        
+        <Switch>
+          <Route path="/:id" children={<Child />}></Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Child(){
+  let {id} = useParams();
+  return(
+    <div>
+      <h3>ID: {id}</h3>
+    </div>
+  );
+}

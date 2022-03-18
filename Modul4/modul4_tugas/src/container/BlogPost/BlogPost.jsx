@@ -6,18 +6,17 @@ class BlogPost extends Component{
     state = {               //komponen state dari react untuk statefull cin
         listMahasiswa: [],      //variabel array yang digunakan untuk menyimpan data
         insertMahasiswa: {
-            userId: 1,
-            NIM: 1,
+            NIM: "1941720148",
             nama: "",
             alamat: "",
             hp:"",
-            angkatan: 2018,
+            angkatan: "2019",
             status:""
         }
     }
 
     ambilDataDariServerAPI = () => {                        //komponen untuk mengecek component telah di mount-img, maka panggil API
-        fetch('http://localhost:3001/mahasiswa?_sort=id&_order=desc')                //alamat url API yang ingin kita ambil datanya
+        fetch('http://localhost:3001/mahasiswa?_sort=id&_order=asc')                //alamat url API yang ingin kita ambil datanya
             .then(response => response.json())              //ubah response data dari url API menjadi sebuah data json
             .then(jsonHasilAmbilDariAPI => {                //data json hasil ambil dari API kita masukkan kedalam listArtikel pada state
                 this.setState({
@@ -66,43 +65,45 @@ class BlogPost extends Component{
 
             <div className="post-mahasiswa">
                 <div className="form pb-2 border-bottom">
+
                     <div className="form-group row">
-                        <label htmlFor="title" className="col-sm-2 col-form-label">NIM</label>
+                        <label htmlFor="NIM" className="col-sm-2 col-form-label">NIM</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="title" name="title" onChange={this.handleTambahMahasiswa}/>    
+                        <textarea className="form-control" id="NIM" name="NIM" rows="3" onChange={this.handleTambahMahasiswa}></textarea> 
+                        
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label htmlFor="body" className="col-sm-2 col-form-label">Nama</label>
+                        <label htmlFor="nama" className="col-sm-2 col-form-label">Nama</label>
                         <div className="col-sm-10">
                             <textarea className="form-control" id="nama" name="nama" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label htmlFor="body" className="col-sm-2 col-form-label">Alamat</label>
+                        <label htmlFor="alamat" className="col-sm-2 col-form-label">Alamat</label>
                         <div className="col-sm-10">
                             <textarea className="form-control" id="alamat" name="alamat" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label htmlFor="body" className="col-sm-2 col-form-label">Nomer Handphone</label>
+                        <label htmlFor="hp" className="col-sm-2 col-form-label">Nomer Handphone</label>
                         <div className="col-sm-10">
-                            <textarea className="form-control" id="nohp" name="nohp" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
+                            <textarea className="form-control" id="hp" name="hp" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label htmlFor="body" className="col-sm-2 col-form-label">Angkatan</label>
+                        <label htmlFor="angkatan" className="col-sm-2 col-form-label">Angkatan</label>
                         <div className="col-sm-10">
                             <textarea className="form-control" id="angkatan" name="angkatan" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label htmlFor="body" className="col-sm-2 col-form-label">Status</label>
+                        <label htmlFor="status" className="col-sm-2 col-form-label">Status</label>
                         <div className="col-sm-10">
                             <textarea className="form-control" id="status" name="status" rows="3" onChange={this.handleTambahMahasiswa}></textarea>
                         </div>
@@ -122,7 +123,7 @@ class BlogPost extends Component{
                         angkatan = {mahasiswa.angkatan}
                         status = {mahasiswa.status}
                         idMahasiswa={mahasiswa.id}
-                        hapusMahasiswa={this.handleHapusmahasiswa}/>
+                        hapusMahasiswa={this.handleHapusMahasiswa}/>
                     })
                 }
             </div>
