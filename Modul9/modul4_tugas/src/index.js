@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
+import {Switch, BrowserRouter as Router, Route} from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BlogPost from "./container/BlogPost/BlogPost";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(<BlogPost />, document.getElementById('content'));
 
